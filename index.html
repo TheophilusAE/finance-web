@@ -4,123 +4,152 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finance Web - Landing Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', Arial, sans-serif;
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #40916c;
+      --bg: #f6fafb;
+      --card-bg: #fff;
+      --accent: #232946;
+      --shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+      --radius: 18px;
+    }
+    html, body {
       margin: 0;
-      background: linear-gradient(135deg, #f8fafc 0%, #e9f5ef 100%);
-      color: #232946;
+      padding: 0;
+      background: linear-gradient(120deg, #f6fafb 0%, #e9f5ef 100%);
+      color: var(--accent);
+      font-family: 'Inter', Arial, sans-serif;
       min-height: 100vh;
     }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
-      background: rgba(255,255,255,0.95);
+      background: var(--card-bg);
       box-shadow: 0 2px 12px rgba(44, 62, 80, 0.04);
       padding: 1.5rem 0 1rem 0;
       position: sticky;
       top: 0;
       z-index: 10;
+      text-align: center;
     }
     .logo {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 700;
-      color: #2d6a4f;
-      letter-spacing: 1px;
+      color: var(--primary);
       letter-spacing: 2px;
+      margin: 0;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
     .hero {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
       align-items: center;
-      justify-content: space-between;
-      padding: 4rem 0 3rem 0;
-      gap: 2rem;
+      max-width: 1100px;
+      width: 100%;
+      margin: 3.5rem auto 2.5rem auto;
+      padding: 0 1.5rem;
     }
-    .hero-text {
-      flex: 1 1 400px;
-      min-width: 300px;
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .hero-title {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.8rem;
+      font-size: 2.7rem;
       font-weight: 700;
-      margin-bottom: 1.2rem;
-      color: #2d6a4f;
+      color: var(--primary);
+      margin-bottom: 1.1rem;
       line-height: 1.15;
     }
     .hero-desc {
-      font-size: 1.25rem;
-      margin-bottom: 2.2rem;
+      font-size: 1.18rem;
       color: #495057;
+      margin-bottom: 2.1rem;
       line-height: 1.6;
+      max-width: 90%;
     }
     .cta-btn {
-      background: linear-gradient(90deg, #2d6a4f 60%, #40916c 100%);
+      background: linear-gradient(90deg, var(--primary) 60%, var(--primary-light) 100%);
       color: #fff;
       padding: 1rem 2.5rem;
       border: none;
-      border-radius: 8px;
+      border-radius: var(--radius);
       font-size: 1.15rem;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10);
       transition: background 0.2s, transform 0.2s;
       letter-spacing: 1px;
       display: inline-block;
     }
     .cta-btn:hover {
-      background: linear-gradient(90deg, #40916c 60%, #2d6a4f 100%);
+      background: linear-gradient(90deg, var(--primary-light) 60%, var(--primary) 100%);
       transform: translateY(-2px) scale(1.03);
     }
     .hero-img {
-      flex: 1 1 350px;
-      min-width: 300px;
-      text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .hero-img img {
-      max-width: 370px;
+      max-width: 420px;
       width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
       background: #e9ecef;
       object-fit: cover;
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/10;
+      border: 4px solid #e9f5ef;
+      transition: box-shadow 0.2s;
+    }
+    .hero-img img:hover {
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
     }
     .features {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      justify-content: space-between;
-      margin: 3.5rem 0 2.5rem 0;
+      justify-content: center;
+      margin: 2.5rem 0 2rem 0;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 1.5rem;
     }
     .feature {
       flex: 1 1 260px;
-      min-width: 220px;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+      min-width: 240px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       text-align: center;
-      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      padding: 2.1rem 1.2rem 1.7rem 1.2rem;
       transition: transform 0.18s, box-shadow 0.18s;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .feature:hover {
       transform: translateY(-4px) scale(1.03);
       box-shadow: 0 8px 32px rgba(44, 62, 80, 0.13);
     }
     .feature-icon {
-      font-size: 2.7rem;
       margin-bottom: 1.1rem;
       display: flex;
       align-items: center;
@@ -128,10 +157,10 @@
       height: 3.2rem;
     }
     .feature-title {
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      color: #2d6a4f;
+      color: var(--primary);
       font-family: 'Montserrat', Arial, sans-serif;
     }
     .feature-desc {
@@ -140,34 +169,40 @@
       line-height: 1.5;
     }
     .quickstart {
-      margin: 3.5rem 0 2.5rem 0;
+      margin: 2.5rem 0 2.5rem 0;
       background: #e9f5ef;
-      border-radius: 14px;
+      border-radius: 1.2rem;
       padding: 2.2rem 1.5rem 2rem 1.5rem;
       box-shadow: 0 2px 12px rgba(44, 62, 80, 0.04);
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .quickstart h2 {
-      color: #2d6a4f;
+      color: var(--primary);
       margin-bottom: 1.1rem;
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
     .quickstart pre {
-      background: #232946;
+      background: var(--accent);
       color: #fff;
       padding: 1.1rem;
-      border-radius: 8px;
+      border-radius: 0.8rem;
       overflow-x: auto;
       font-size: 1.08rem;
       margin-bottom: 1.2rem;
+      width: 100%;
     }
     .github-btn {
       display: inline-block;
       margin-top: 0.5rem;
-      background: #232946;
+      background: var(--accent);
       color: #fff;
       padding: 0.8rem 2.1rem;
-      border-radius: 8px;
+      border-radius: 0.8rem;
       text-decoration: none;
       font-weight: 700;
       font-size: 1.08rem;
@@ -175,7 +210,7 @@
       box-shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
     }
     .github-btn:hover {
-      background: #2d6a4f;
+      background: var(--primary);
       transform: translateY(-2px) scale(1.03);
     }
     footer {
@@ -187,12 +222,15 @@
     }
     @media (max-width: 900px) {
       .hero {
-        flex-direction: column-reverse;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
         text-align: center;
-        gap: 1.5rem;
       }
-      .hero-text, .hero-img {
-        min-width: 0;
+      .hero-content {
+        align-items: center;
+      }
+      .hero-desc {
+        max-width: 100%;
       }
       .features {
         flex-direction: column;
@@ -214,40 +252,46 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <span class="logo">Finance Web</span>
-    </div>
+    <div class="logo">Finance Web</div>
   </header>
   <main>
-    <section class="container hero">
-      <div class="hero-text">
+    <section class="hero">
+      <div class="hero-content">
         <h1 class="hero-title">Take Control of Your Finances</h1>
         <p class="hero-desc">A modern platform to manage, analyze, and optimize your personal or business finances. Track expenses, visualize trends, and make smarter decisions with beautiful dashboards and smart insights.</p>
         <a href="#quickstart" class="cta-btn">Get Started</a>
       </div>
       <div class="hero-img">
-        <!-- Dashboard screenshot as hero image -->
         <img src="Screenshot 2025-07-05 235419.png" alt="Finance Web Dashboard Screenshot" />
       </div>
     </section>
-    <section class="container features">
+    <section class="features">
       <div class="feature">
-        <div class="feature-icon">🌟</div>
+        <div class="feature-icon">
+          <!-- Smart Analysis SVG -->
+          <svg width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="18" fill="#ffe066"/><path d="M18 10v8l6 3" stroke="#f59e42" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
         <div class="feature-title">Smart Analysis</div>
         <div class="feature-desc">Gain insights with automated financial analysis and easy-to-read reports. Let data work for you.</div>
       </div>
       <div class="feature">
-        <div class="feature-icon">📈</div>
+        <div class="feature-icon">
+          <!-- Visual Dashboards SVG -->
+          <svg width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="28" height="20" rx="6" fill="#b2f0e6"/><rect x="10" y="14" width="4" height="8" rx="2" fill="#5f6dfa"/><rect x="18" y="10" width="4" height="12" rx="2" fill="#5f6dfa"/><rect x="24" y="18" width="4" height="4" rx="2" fill="#5f6dfa"/></svg>
+        </div>
         <div class="feature-title">Visual Dashboards</div>
         <div class="feature-desc">Interactive charts and dashboards to visualize your financial health in real time.</div>
       </div>
       <div class="feature">
-        <div class="feature-icon">🔒</div>
+        <div class="feature-icon">
+          <!-- Secure & Private SVG -->
+          <svg width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="14" width="24" height="14" rx="5" fill="#ffe0e0"/><rect x="14" y="18" width="8" height="6" rx="3" fill="#f59e42"/><path d="M18 14v-2a4 4 0 1 1 8 0v2" stroke="#f59e42" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
         <div class="feature-title">Secure & Private</div>
         <div class="feature-desc">Your data is protected with industry-standard security and privacy practices.</div>
       </div>
     </section>
-    <section class="container quickstart" id="quickstart">
+    <section class="quickstart" id="quickstart">
       <h2>Quick Start</h2>
       <p>Get up and running in seconds. Clone the repo and follow the instructions below:</p>
       <pre>git clone https://github.com/TheophilusAE/finance-web.git
@@ -258,7 +302,6 @@ cd finance-web
   </main>
   <footer>
     &copy; 2024 Finance Web. All rights reserved.<br />
-    <!-- Update with your contact or social links if desired -->
   </footer>
 </body>
 </html> 
